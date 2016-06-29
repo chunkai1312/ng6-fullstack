@@ -3,7 +3,7 @@ import brand from '../../../assets/images/angular-logo.svg';
 
 const mainTemplate = `
   <div layout="row" layout-fill>
-    <nav-drawer title="NG6 Fullstack" brand-src="${brand}" layout="row">
+    <nav-drawer app-title="NG6 Fullstack" brand-src="${brand}" layout="row">
       <nav-profile user="$ctrl.auth.currentUser"></nav-profile>
       <nav-menu>
         <nav-menu-item
@@ -24,6 +24,7 @@ class MainController {
   constructor($mdSidenav, auth) {
     this.$mdSidenav = $mdSidenav;
     this.auth = auth;
+    console.log(auth.currentUser);
   }
 
   $onInit() {

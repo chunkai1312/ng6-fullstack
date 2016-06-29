@@ -12,7 +12,7 @@ const headBarTemplate = `
         <md-icon md-svg-icon="keyboard-backspace"></md-icon>
         <md-tooltip md-direction="bottom">Back</md-tooltip>
       </md-button>
-      <h1>{{ $ctrl.title }}</h1>
+      <h1>{{ $ctrl.pageTitle }}</h1>
       <span flex></span>
       <span ng-transclude></span>
     </div>
@@ -32,7 +32,7 @@ class HeadBarController {
 
 export default {
   transclude: true,
-  bindings: { title: '@', backButton: '<', onBackButtonClick: '&' },
+  bindings: { pageTitle: '@', backButton: '<', onBackButtonClick: '&' },
   template: headBarTemplate,
   controller: HeadBarController,
 };

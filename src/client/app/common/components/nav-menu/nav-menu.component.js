@@ -2,7 +2,7 @@ import './nav-menu.css';
 
 const navMenuTemplate = `
   <md-list>
-    <div ng-transclude></div>
+    <div ng-transclude="item"></div>
   </md-list>
 `;
 
@@ -12,9 +12,8 @@ class NavMenuController {
 }
 
 export default {
-  transclude: true,
+  transclude: { item: 'navMenuItem' },
   bindings: {},
   template: navMenuTemplate,
   controller: NavMenuController,
 };
-

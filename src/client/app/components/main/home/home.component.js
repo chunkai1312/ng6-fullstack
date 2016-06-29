@@ -1,15 +1,14 @@
 import './home.css';
 
 const homeTemplate = `
-  <div layout="column" layout-fill>
-    <header-bar title="Home"></header-bar>
-
-    <md-content flex layout-padding>
+  <main-page>
+    <header-bar page-title="Home"></header-bar>
+    <md-content>
       <div layout="column">
         Home
       </div>
     </md-content>
-  </div>
+  </main-page>
 `;
 
 class HomeController {

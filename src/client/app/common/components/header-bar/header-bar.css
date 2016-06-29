@@ -1,7 +1,14 @@
 header-bar .md-toolbar-tools > [ng-transclude] > .md-button:first-child {
   margin-left: -8px;
+  margin-right: -8px;
 }
 
-header-bar .md-toolbar-tools > [ng-transclude] > .md-button:first-child {
+header-bar .md-toolbar-tools > [ng-transclude] > .md-button:last-child {
+  margin-left: -8px;
   margin-right: -8px;
+}
+
+header-bar .md-toolbar-tools > [ng-transclude] > md-menu:last-child {
+  /*margin-left: 16px;*/
+  margin-right: -16px;
 }

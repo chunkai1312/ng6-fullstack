@@ -10,7 +10,7 @@ const navDrawerTemplate = `
       <div class="md-toolbar-tools">
         <div class="brand" layout="row" layout-align="start center" ng-click="$ctrl.goHome()" flex>
           <img ng-src="{{ $ctrl.brandSrc }}" alt="Punwave">
-          <span>{{ $ctrl.title }}</span>
+          <span>{{ $ctrl.appTitle }}</span>
         </div>
       </div>
     </md-toolbar>
@@ -33,7 +33,7 @@ class NavDrawerController {
 
 export default {
   transclude: true,
-  bindings: { title: '@', brandSrc: '@' },
+  bindings: { appTitle: '@', brandSrc: '@' },
   template: navDrawerTemplate,
   controller: NavDrawerController,
 };
