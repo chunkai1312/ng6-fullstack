@@ -3,10 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'client', 'app', 'app.js'),
+  devtool: 'sourcemap',
+  entry: [
+    'webpack/hot/dev-server',
+    'webpack-dev-server/client?http://localhost:4000',
+    path.join(__dirname, 'src', 'client', 'app', 'app.js'),
+  ],
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, 'dist', 'public'),
+    path: path.join(__dirname, 'src', 'client'),
     publicPath: '/',
   },
   module: {
@@ -19,6 +24,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.js',
@@ -26,22 +32,13 @@ module.exports = {
         return module.resource && module.resource.indexOf(path.join(__dirname, 'src', 'client')) === -1;
       },
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-    }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'client', 'index.html'),
+      template: 'src/client/index.html',
       inject: 'body',
       hash: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-      },
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"',
+      'process.env.NODE_ENV': '"development"',
     }),
   ],
 };
