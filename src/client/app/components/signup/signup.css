@@ -1,0 +1,9 @@
+signup > div {
+  background: #cde5ff;
+}
+
+signup .logo {
+  width: 150px;
+  height: 150px;
+  margin: 0 0 25px 0;
+}

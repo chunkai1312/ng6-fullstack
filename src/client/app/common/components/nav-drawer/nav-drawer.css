@@ -1,0 +1,17 @@
+nav-drawer .brand:hover {
+  cursor: pointer; 
+}
+
+nav-drawer .brand:focus {
+  outline: none;
+  border: 0;
+}
+
+nav-drawer .brand > img {
+  width: 40px;
+  height: 40px;
+}
+
+nav-drawer .brand > span {
+  margin: 0 0 0 14px;
+}

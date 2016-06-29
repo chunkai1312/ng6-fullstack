@@ -1,6 +1,10 @@
 import angular from 'angular';
-import layout from './layout/layout';
+import main from './main/main';
+import login from './login/login';
+import signup from './signup/signup';
 
 export default angular.module('app.components', [
-  layout.name,
+  main.name,
+  login.name,
+  signup.name,
 ]);

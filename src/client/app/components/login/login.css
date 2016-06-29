@@ -1,0 +1,68 @@
+login > div {
+  background-color: #cde5ff;
+}
+
+login .logo {
+  width: 150px;
+  height: 150px;
+  margin: 0 0 25px 0;
+}
+
+login .md-button.md-raised.google {
+  color: #ffffff;
+  background-color: #d34836;
+}
+
+login .md-button.md-raised.google:not([disabled]):hover {
+  color: #ffffff;
+  background-color: #d34836;
+}
+
+login .md-button.md-raised.google[disabled] {
+  color: #ffffff;
+  background-color: #d34836;
+}
+
+login .md-button.md-raised.google > md-icon {
+  color: #ffffff;
+  margin: 0 8px 0 0;
+}
+
+login .md-button.md-raised.facebook {
+  color: #ffffff;
+  background-color: #3b5998;
+}
+
+login .md-button.md-raised.facebook:not([disabled]):hover {
+  color: #ffffff;
+  background-color: #3b5998;
+}
+
+login .md-button.md-raised.facebook[disabled] {
+  color: #ffffff;
+  background-color: #3b5998;
+}
+
+login .md-button.md-raised.facebook > md-icon {
+  color: #ffffff;
+  margin: 0 8px 0 0;
+}
+
+login .separator {
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: rgba(0, 0, 0, 0.35);
+	margin: 8px 0px;
+}
+
+login .separator::before,
+login .separator::after {
+	content: "";
+	flex-grow: 1;
+	background: rgba(0, 0, 0, 0.35);
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 8px;
+}
