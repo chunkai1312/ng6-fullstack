@@ -5,7 +5,11 @@ const homeTemplate = `
     <header-bar page-title="Home"></header-bar>
     <md-content>
       <div layout="column">
-        Home
+        <md-card>
+          <md-card-content>
+            Home Page
+          </md-card-content>
+        </md-card>
       </div>
     </md-content>
   </main-page>
@@ -14,11 +18,11 @@ const homeTemplate = `
 class HomeController {
   /* @ngInject */
   constructor() {
-
+    // TODO
   }
 
   $onInit() {
-
+    // TODO
   }
 }
 

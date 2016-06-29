@@ -24,13 +24,12 @@ class MainController {
   constructor($mdSidenav, auth) {
     this.$mdSidenav = $mdSidenav;
     this.auth = auth;
-    console.log(auth.currentUser);
   }
 
   $onInit() {
     this.menuItems = [
-      // { icon: 'view-dashboard', title: 'Ads Manager', link: ['Ads'], canAccess: this.auth.hasPermission('ads') },
-      // { icon: 'chart-bar', title: 'Reports', link: ['Reports'], canAccess: this.auth.hasPermission('report') },
+      { icon: 'home', title: 'Home', link: ['Home'], canAccess: this.auth.isLoggedIn() },
+      { icon: 'view-grid', title: 'About', link: ['About'], canAccess: this.auth.isLoggedIn() },
       // { icon: 'wrench', title: 'Administration', link: ['Admin'], canAccess: this.auth.hasPermission('admin') },
       // { icon: 'settings', title: 'Settings', link: ['Settings'], canAccess: this.auth.isLoggedIn() },
       { icon: 'logout', title: 'Logout', canAccess: this.auth.isLoggedIn() },
@@ -50,8 +49,7 @@ export default {
   controller: MainController,
   $routeConfig: [
     { path: '/', name: 'Home', component: 'home', useAsDefault: true },
-    // { path: '/ads/...', name: 'Ads', component: 'ads' },
-    // { path: '/reports/...', name: 'Reports', component: 'reports' },
+    { path: '/about', name: 'About', component: 'about' },
     // { path: '/admin/...', name: 'Admin', component: 'admin' },
     // { path: '/settings/...', name: 'Settings', component: 'settings' },
   ],
