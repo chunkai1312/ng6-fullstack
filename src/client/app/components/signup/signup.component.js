@@ -4,7 +4,7 @@ import logo from '../../../assets/images/angular-logo.svg';
 const signupTemplate = `
   <div layout="row" layout-fill class="signup" layout-align="center center" layout-padding>
     <div layout="column" layout-padding flex>
-      <form name="form" ng-submit="$ctrl.signUp(form)" novalidate>
+      <form name="form" ng-submit="$ctrl.signup(form)" novalidate>
         <div layout="row" layout-padding>
           <div flex-offset-gt-sm="33" flex-gt-sm="33" flex>
             <div layout="row" layout-align="center center">
@@ -69,7 +69,6 @@ class SignupController {
   signup(form) {
     if (form.$invalid) return;
 
-    this.user.code = this.$location.search().code;
     this.auth.signup(this.user)
       .then(() => this.$router.navigate(['Main']))
       .catch(err => this.toastr.error('Invalid Registration', err));
