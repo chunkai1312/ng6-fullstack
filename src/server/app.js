@@ -6,7 +6,6 @@ const config = require('./config');
 
 const app = express();
 
-require('./config/passport')();
 require('./config/mongoose')();
 require('./config/express')(app, config);
 require('./config/routes')(app, config);
