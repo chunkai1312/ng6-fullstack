@@ -6,7 +6,7 @@ const loginTemplate = `
     <div layout="column" layout-padding flex>
       <form name="form" ng-submit="$ctrl.login(form)" novalidate>
         <div layout="row" layout-padding>
-          <div flex-offset-gt-md="33" flex-gt-md="33" flex>
+          <div flex-offset-gt-sm="33" flex-gt-sm="33" flex>
             <div layout="row" layout-align="center center">
               <img class="logo" src="${logo}" alt="Logo">
             </div>

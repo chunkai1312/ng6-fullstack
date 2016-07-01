@@ -6,29 +6,40 @@ const signupTemplate = `
     <div layout="column" layout-padding flex>
       <form name="form" ng-submit="$ctrl.signUp(form)" novalidate>
         <div layout="row" layout-padding>
-          <div flex-offset-gt-md="33" flex-gt-md="33" flex>
+          <div flex-offset-gt-sm="33" flex-gt-sm="33" flex>
             <div layout="row" layout-align="center center">
               <img class="logo" src="${logo}" alt="Logo">
             </div>
-            <md-input-container md-no-float md-is-error="form.name.$invalid && form.$submitted" class="md-block" flex>
-              <md-icon md-svg-icon="account"></md-icon>
-              <input type="text" name="name" ng-model="$ctrl.user.name" placeholder="Name" required>
-              <div ng-messages="form.name.$error">
-                <div ng-message="required">This is required.</div>
-              </div>
-            </md-input-container>
-            <md-input-container md-no-float md-is-error="form.email.$invalid && form.$submitted" class="md-block">
-              <md-icon md-svg-icon="email"></md-icon>
+            <div layout="row">
+              <md-input-container md-is-error="form.firstName.$invalid && form.$submitted" class="md-block" flex>
+                <input type="text" name="firstName" ng-model="$ctrl.user.firstName" placeholder="First Name" required>
+                <div ng-messages="form.firstName.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+              <md-input-container md-is-error="form.lastName.$invalid && form.$submitted" class="md-block" flex>
+                <input type="text" name="lastName" ng-model="$ctrl.user.lastName" placeholder="Last Name" required>
+                <div ng-messages="form.lastName.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+            <md-input-container md-is-error="form.email.$invalid && form.$submitted" class="md-block">
               <input type="email" name="email" ng-model="$ctrl.user.email" placeholder="Email" required>
               <div ng-messages="form.email.$error">
                 <div ng-message-exp="['required', 'email']">Please enter a valid email address.</div>
               </div>
             </md-input-container>
-            <md-input-container md-no-float md-is-error="form.password.$invalid && form.$submitted" class="md-block">
-              <md-icon md-svg-icon="lock"></md-icon>
+            <md-input-container md-is-error="form.password.$invalid && form.$submitted" class="md-block">
               <input type="password" name="password" ng-model="$ctrl.user.password" placeholder="Password" required>
               <div ng-messages="form.password.$error">
                 <div ng-message="required">This is required.</div>
+              </div>
+            </md-input-container>
+            <md-input-container md-is-error="form.confirmPassword.$invalid && form.$submitted" class="md-block">
+              <input type="password" name="confirmPassword" ng-model="$ctrl.user.confirmPassword" compare-to="$ctrl.user.password" placeholder="Confirm Password" required>
+              <div ng-messages="form.confirmPassword.$error">
+                <div ng-message-exp="['required', 'compareTo']">Please make sure your passwords match.</div>
               </div>
             </md-input-container>
             <div layout="column"> 
@@ -46,8 +57,7 @@ const signupTemplate = `
 
 class SignupController {
   /* @ngInject */
-  constructor($location, auth, toastr) {
-    this.$location = $location;
+  constructor(auth, toastr) {
     this.auth = auth;
     this.toastr = toastr;
   }
