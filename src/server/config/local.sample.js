@@ -15,6 +15,14 @@ module.exports = {
     ip: '127.0.0.1',
   },
 
+  jwt: {
+    secret: '5XXBf2oyNnN7nZ00H0d3SJmt6nciRpCA',
+    options: {
+      algorithm: 'HS256',
+      expiresIn: 3600,
+    },
+  },
+
   oauth: {
     google: {
       clientID: '',
@@ -22,13 +30,9 @@ module.exports = {
       callbackURL: '',
     },
     facebook: {
-      clientID: '',
-      clientSecret: '',
-      callbackURL: '',
+      clientID: '1507896599439986',
+      clientSecret: 'beb9fe3a0a8e5e1ccaeaeb7905515b5e',
+      callbackURL: 'http://localhost:4321/auth/facebook/callback',
     },
-    twitter: {
-      clientID: '',
-      clientSecret: '',
-      callbackURL: '',
-    },
+  },
 };

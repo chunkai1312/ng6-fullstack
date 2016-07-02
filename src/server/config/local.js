@@ -32,12 +32,7 @@ module.exports = {
     facebook: {
       clientID: '1507896599439986',
       clientSecret: 'beb9fe3a0a8e5e1ccaeaeb7905515b5e',
-      callbackURL: '',
-    },
-    twitter: {
-      clientID: '',
-      clientSecret: '',
-      callbackURL: '',
+      callbackURL: 'http://localhost:4321/auth/facebook/callback',
     },
   },
 };

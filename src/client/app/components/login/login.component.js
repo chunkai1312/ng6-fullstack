@@ -29,12 +29,12 @@ const loginTemplate = `
             </div>
             <div class="separator">or</div>
             <div layout="column"> 
-              <md-button type="button" class="md-raised google">
+              <md-button type="button" class="md-raised google" ng-click="$ctrl.loginWithGoogle()">
                 <md-icon md-svg-icon="google-plus" class="icon"></md-icon><span>Login with Google</span>
               </md-button>
             </div>
             <div layout="column"> 
-              <md-button type="button" class="md-raised facebook">
+              <md-button type="button" class="md-raised facebook" ng-click="$ctrl.loginWithFacebook()">
                 <md-icon md-svg-icon="facebook" class="icon"></md-icon><span>Login with Facebook</span>
               </md-button>
             </div>

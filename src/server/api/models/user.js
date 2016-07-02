@@ -6,8 +6,8 @@ const credential = require('credential');
 const pw = credential();
 
 const UserSchema = new Schema({
-  email: { type: String, lowercase: true, unique: true, required: true },
-  password: { type: String, required: true },
+  email: { type: String, lowercase: true, required: true },
+  password: { type: String },
   firstName: { type: String },
   lastName: { type: String },
   provider: { type: String, enum: ['local', 'google', 'facebook'] },
@@ -62,6 +62,17 @@ UserSchema.statics = {
   getByEmail(email, callback) {
     return this.findOne({ email }, callback);
   },
+
+  /**
+   * Get a user by facebook id.
+   *
+   * @param  {String}   facebookId - facebook id for querying
+   * @param  {Function} callback - callback function for when query is complete
+   * @return {Promise}  result of query
+   */
+  getByFacebookId(facebookId, callback) {
+    return this.findOne({ 'facebook.id': facebookId }, callback);
+  },
 };
 
 UserSchema.methods = {
@@ -113,4 +124,4 @@ UserSchema.methods = {
   },
 };
 
-module.exports = mongoose.model('OAuthUser', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
