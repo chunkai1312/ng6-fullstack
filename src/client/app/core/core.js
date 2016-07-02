@@ -15,6 +15,7 @@ import ngToastr from 'angular-toastr';
 
 // styles
 import 'angular-material/angular-material.css';
+import 'angular-material-data-table/dist/md-data-table.min.css';
 import 'angular-loading-bar/build/loading-bar.css';
 import 'angular-toastr/dist/angular-toastr.css';
 

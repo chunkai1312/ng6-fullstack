@@ -7,7 +7,7 @@ const pw = credential();
 
 const UserSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
-  password: { type: String, select: false },
+  password: { type: String },
   firstName: { type: String },
   lastName: { type: String },
   google: { type: String },
@@ -15,6 +15,7 @@ const UserSchema = new Schema({
 }, { collection: 'users', timestamps: true, virtuals: true });
 
 UserSchema.set('toJSON', {
+  virtuals: true,
   transform: (doc, ret, options) => {
     ret.id = ret._id;
     delete ret._id;
@@ -47,7 +48,7 @@ UserSchema.statics = {
    * @return {Promise}  result of query
    */
   getById(id, callback) {
-    return this.findById(id, callback);
+    return this.findOne({ _id: id }, '-password', callback);
   },
 
   /**

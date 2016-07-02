@@ -49,6 +49,7 @@ class AuthService {
   }
 
   isLoggedIn() {
+    if (!_.isEmpty(this.currentUser)) return true;
     if (this.$cookies.get('token')) {
       return this.User.get().$promise
         .then(user => {
