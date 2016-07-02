@@ -9,6 +9,7 @@
     "prebuild": "npm run clean",
     "build": "ncp ./src/server ./dist/ && webpack --config ./webpack.production.config.js --progress --profile --colors",
     "test": "cross-env NODE_ENV=test mocha ./src/server/test/**/*.test.js",
+    "lint": "eslint src/**/*.js",
     "generator:component": "node ./generator"
   },
   "keywords": [
