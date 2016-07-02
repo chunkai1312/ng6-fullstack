@@ -6,13 +6,12 @@ const credential = require('credential');
 const pw = credential();
 
 const UserSchema = new Schema({
-  email: { type: String, lowercase: true, required: true },
-  password: { type: String },
+  email: { type: String, unique: true, lowercase: true },
+  password: { type: String, select: false },
   firstName: { type: String },
   lastName: { type: String },
-  provider: { type: String, enum: ['local', 'google', 'facebook'] },
-  google: {},
-  facebook: {},
+  google: { type: String },
+  facebook: { type: String },
 }, { collection: 'users', timestamps: true, virtuals: true });
 
 UserSchema.set('toJSON', {
@@ -20,7 +19,6 @@ UserSchema.set('toJSON', {
     ret.id = ret._id;
     delete ret._id;
     delete ret.__v;
-    delete ret.password;
     delete ret.createdAt;
     delete ret.updatedAt;
   },
@@ -64,14 +62,25 @@ UserSchema.statics = {
   },
 
   /**
-   * Get a user by facebook id.
+   * Get a user by google plus id.
    *
-   * @param  {String}   facebookId - facebook id for querying
+   * @param  {String}   facebook - google plus id for querying
    * @param  {Function} callback - callback function for when query is complete
    * @return {Promise}  result of query
    */
-  getByFacebookId(facebookId, callback) {
-    return this.findOne({ 'facebook.id': facebookId }, callback);
+  getByGoogle(google, callback) {
+    return this.findOne({ google }, callback);
+  },
+
+  /**
+   * Get a user by facebook id.
+   *
+   * @param  {String}   facebook - facebook id for querying
+   * @param  {Function} callback - callback function for when query is complete
+   * @return {Promise}  result of query
+   */
+  getByFacebook(facebook, callback) {
+    return this.findOne({ facebook }, callback);
   },
 };
 

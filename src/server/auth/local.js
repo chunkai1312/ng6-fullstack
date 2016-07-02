@@ -13,7 +13,6 @@ module.exports = {
    */
   signup: wrap(function* (req, res) {
     const user = new User(req.body);
-    user.provider = 'local';
     yield user.save();
     const token = jwt.sign({ id: user.id, role: user.role }, config.jwt.secret, config.jwt.options);
     res.json({ token });

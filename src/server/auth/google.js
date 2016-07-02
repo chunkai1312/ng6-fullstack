@@ -8,18 +8,17 @@ const config = require('../config');
 module.exports = {
 
   /**
-   * Responds to requests to GET /auth/facebook
+   * Responds to requests to GET /auth/google
    */
-  index: passport.authenticate('facebook', {
-    authType: 'rerequest',
-    scope: ['public_profile', 'email'],
+  index: passport.authenticate('google', {
+    scope: ['profile', 'email'],
   }),
 
   /**
-   * Responds to requests to GET /auth/facebook/callback
+   * Responds to requests to GET /auth/google/callback
    */
   callback: [
-    passport.authenticate('facebook', {
+    passport.authenticate('google', {
       failureRedirect: config.baseUrl,
     }),
     wrap(function* callback(req, res) {

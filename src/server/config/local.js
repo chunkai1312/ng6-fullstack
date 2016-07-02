@@ -25,9 +25,9 @@ module.exports = {
 
   oauth: {
     google: {
-      clientID: '',
-      clientSecret: '',
-      callbackURL: '',
+      clientID: '966370642030-bro4t2fe89f1jmiph1o7q6iv37ct2jrs.apps.googleusercontent.com',
+      clientSecret: 'YhN4_gj9TXwX-HyfwuciUdZW',
+      callbackURL: 'http://localhost:4321/auth/google/callback',
     },
     facebook: {
       clientID: '1507896599439986',
