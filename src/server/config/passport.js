@@ -34,9 +34,11 @@ const google = new GoogleStrategy({
       if (user) return done(null, false, { message: 'There is already an account using this email address.' });
       user = yield User.create({
         email: profile.emails[0].value,
-        firstName: profile.name.givenName,
-        lastName: profile.name.familyName,
         google: profile.id,
+        profile: {
+          firstName: profile.name.givenName,
+          lastName: profile.name.familyName,
+        },
       });
     }
     return done(null, user);
@@ -56,9 +58,11 @@ const facebook = new FacebookStrategy({
       if (user) return done(null, false, { message: 'There is already an account using this email address.' });
       user = yield User.create({
         email: profile.emails[0].value,
-        firstName: profile.name.givenName,
-        lastName: profile.name.familyName,
         facebook: profile.id,
+        profile: {
+          firstName: profile.name.givenName,
+          lastName: profile.name.familyName,
+        },
       });
     }
     return done(null, user);

@@ -6,10 +6,7 @@ const navMenuTemplate = `
   </md-list>
 `;
 
-class NavMenuController {
-  /* @ngInject */
-  constructor() { }
-}
+class NavMenuController { }
 
 export default {
   transclude: { item: 'navMenuItem' },

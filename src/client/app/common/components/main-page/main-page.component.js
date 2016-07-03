@@ -11,10 +11,7 @@ const pageTemplate = `
   </div>
 `;
 
-class PageController {
-  /* @ngInject */
-  constructor() { }
-}
+class PageController { }
 
 export default {
   transclude: {

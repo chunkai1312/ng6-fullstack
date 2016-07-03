@@ -1,5 +1,4 @@
 import angular from 'angular';
-import _ from 'lodash';
 import editProfileDialog from './edit-profile.dialog';
 import changePasswordDialog from './change-password.dialog';
 
@@ -11,7 +10,7 @@ class DialogService {
   }
 
   openConfirmationDialog(title, message, $event) {
-    let dialog = this.$mdDialog.confirm()
+    const dialog = this.$mdDialog.confirm()
       .targetEvent($event)
       .title(title)
       .textContent(message)
@@ -22,7 +21,7 @@ class DialogService {
   }
 
   openDeleteConfirmationDialog(name, $event) {
-    let dialog = this.$mdDialog.confirm()
+    const dialog = this.$mdDialog.confirm()
       .targetEvent($event)
       .title(`Delete ${name}`)
       .textContent(`Are you sure you want to delete ${name} ?`)
@@ -32,27 +31,27 @@ class DialogService {
     return this.$mdDialog.show(dialog);
   }
 
-  openEditProfileDialog(profile, $event) {
-    let options = {
+  openEditProfileDialog(user, $event) {
+    const options = {
       parent: angular.element(document.body),
       targetEvent: $event,
-      locals: { profile: Object.assign({}, profile) },
+      locals: { user: Object.assign({}, user) },
       bindToController: true,
       fullscreen: this.$mdMedia('sm') || this.$mdMedia('xs'),
     };
-    let dialog = Object.assign(options, editProfileDialog);
+    const dialog = Object.assign(options, editProfileDialog);
     return this.$mdDialog.show(dialog);
   }
 
   openChangePasswordDialog(userId, $event) {
-    let options = {
+    const options = {
       parent: angular.element(document.body),
       targetEvent: $event,
       locals: { password: Object.assign({}, { id: userId }) },
       bindToController: true,
       fullscreen: this.$mdMedia('sm') || this.$mdMedia('xs'),
     };
-    let dialog = Object.assign(options, changePasswordDialog);
+    const dialog = Object.assign(options, changePasswordDialog);
     return this.$mdDialog.show(dialog);
   }
 }

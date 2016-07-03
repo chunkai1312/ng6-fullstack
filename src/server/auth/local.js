@@ -12,8 +12,14 @@ module.exports = {
    * Responds to requests to POST /auth/signup
    */
   signup: wrap(function* (req, res) {
-    const user = new User(req.body);
-    yield user.save();
+    const user = yield User.create({
+      email: req.body.email,
+      password: req.body.password,
+      profile: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+      },
+    });
     const token = jwt.sign({ id: user.id, role: user.role }, config.jwt.secret, config.jwt.options);
     res.json({ token });
   }),

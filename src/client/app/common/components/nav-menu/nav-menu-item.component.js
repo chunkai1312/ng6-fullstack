@@ -7,10 +7,7 @@ const navMenuItemTemplate = `
   </md-list-item>
 `;
 
-class NavMenuItemController {
-  /* @ngInject */
-  constructor() { }
-}
+class NavMenuItemController { }
 
 export default {
   require: '^navMenu',

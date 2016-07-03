@@ -1,0 +1,18 @@
+account md-progress-linear {
+  height: 0;
+  transition: opacity 1s;
+}
+
+account md-progress-linear.ng-hide {
+  opacity: 0;
+}
+
+account md-progress-linear > .md-container {
+  height: 3px;
+  top: 0;
+  transition: none;
+}
+
+account md-progress-linear > .md-bar {
+  height: 3px;
+}

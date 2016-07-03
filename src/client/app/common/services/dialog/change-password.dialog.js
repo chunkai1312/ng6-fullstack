@@ -1,4 +1,4 @@
-let editProfileTemplate = `
+const editProfileTemplate = `
   <md-dialog flex aria-label="{{ $ctrl.title }}" ng-cloak>
     <form name="form" ng-submit="$ctrl.hide(form)" novalidate>
       <md-toolbar class="md-whiteframe-z2">

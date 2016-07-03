@@ -7,15 +7,15 @@ const User = require('../models/user');
 module.exports = {
 
   /**
-   * Responds to requests to GET /users
+   * Responds to requests to GET /api/users
    */
   index: wrap(function* (req, res) {
-    const users = yield User.find();
+    const users = yield User.get(req.query);
     res.status(200).json(users);
   }),
 
   /**
-   * Responds to requests to POST /users
+   * Responds to requests to POST /api/users
    */
   create: wrap(function* (req, res) {
     let user;
@@ -29,16 +29,16 @@ module.exports = {
   }),
 
   /**
-   * Responds to requests to GET /users/me
+   * Responds to requests to GET /api/users/me
    */
   me: wrap(function* (req, res) {
     const user = yield User.getById(req.user.id);
-    if (!user) throw error(404);
+    if (!user) throw error(401);
     res.status(200).json(user);
   }),
 
   /**
-   * Responds to requests to GET /users/:id
+   * Responds to requests to GET /api/users/:id
    */
   show: wrap(function* (req, res) {
     const user = yield User.findById(req.params.id);
@@ -47,17 +47,19 @@ module.exports = {
   }),
 
   /**
-   * Responds to requests to PUT /users/:id
+   * Responds to requests to PUT /api/users/:id
    */
   update: wrap(function* update(req, res) {
     const user = yield User.findById(req.params.id);
     if (!user) throw error(404);
-    user.firstName = req.body.firstName;
-    user.lastName = req.body.lastName;
+    user.profile = req.body.profile;
     yield user.save();
     res.status(200).json(user);
   }),
 
+  /**
+   * Responds to requests to DELETE /api/users/:id
+   */
   destroy: wrap(function* (req, res) {
     const user = yield User.findByIdAndRemove(req.params.id);
     if (!user) throw error(404);
@@ -65,7 +67,7 @@ module.exports = {
   }),
 
   /**
-   * Responds to requests to POST /users/:id/change_password
+   * Responds to requests to PUT /api/users/:id/password
    */
   changePassword: wrap(function* (req, res) {
     const user = yield User.findById(req.params.id);

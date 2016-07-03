@@ -33,12 +33,8 @@ class AuthService {
     });
   }
 
-  loginWithGoogle() {
-    this.$window.location.href = '/auth/google';
-  }
-
-  loginWithFacebook() {
-    this.$window.location.href = '/auth/facebook';
+  authenticate(provider) {
+    this.$window.location.href = `/auth/${provider}`;
   }
 
   logout() {

@@ -29,12 +29,12 @@ const loginTemplate = `
             </div>
             <div class="separator">or</div>
             <div layout="column"> 
-              <md-button type="button" class="md-raised google" ng-click="$ctrl.loginWithGoogle()">
+              <md-button type="button" class="md-raised google" ng-click="$ctrl.authenticate('google')">
                 <md-icon md-svg-icon="google-plus" class="icon"></md-icon><span>Login with Google</span>
               </md-button>
             </div>
             <div layout="column"> 
-              <md-button type="button" class="md-raised facebook" ng-click="$ctrl.loginWithFacebook()">
+              <md-button type="button" class="md-raised facebook" ng-click="$ctrl.authenticate('facebook')">
                 <md-icon md-svg-icon="facebook" class="icon"></md-icon><span>Login with Facebook</span>
               </md-button>
             </div>
@@ -67,12 +67,8 @@ class LoginController {
       .catch(err => this.toastr.error('Invalid Login', err));
   }
 
-  loginWithFacebook() {
-    this.auth.loginWithFacebook();
-  }
-
-  loginWithGoogle() {
-    this.auth.loginWithGoogle();
+  authenticate(provider) {
+    this.auth.authenticate(provider);
   }
 
   signup() {

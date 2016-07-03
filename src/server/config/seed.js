@@ -16,13 +16,23 @@ module.exports = {
    * Populate seed data.
    */
   populate: co.wrap(function* () {
-    const administrator = yield User.create({
+    return yield User.create({
       email: 'admin@example.com',
       password: 'admin',
-      firstName: 'Web',
-      lastName: 'Administrator',
+      role: 'admin',
+      profile: {
+        firstName: 'Web',
+        lastName: 'Administrator',
+      },
+    }, {
+      email: 'user@example.com',
+      password: 'user',
+      role: 'user',
+      profile: {
+        firstName: 'General',
+        lastName: 'User',
+      },
     });
-    return administrator;
   }),
 
   /**

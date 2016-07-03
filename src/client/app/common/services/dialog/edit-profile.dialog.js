@@ -1,4 +1,4 @@
-let editProfileTemplate = `
+const editProfileTemplate = `
   <md-dialog flex aria-label="{{ $ctrl.title }}" ng-cloak>
     <form name="form" ng-submit="$ctrl.hide(form)" novalidate>
       <md-toolbar class="md-whiteframe-z2">
@@ -15,33 +15,29 @@ let editProfileTemplate = `
           <div layout="row">
             <md-input-container md-is-error="form.firstName.$invalid && form.$submitted" class="md-block" flex>
               <label>First Name</label>
-              <input type="text" name="firstName" ng-model="$ctrl.profile.firstName" required>
+              <input type="text" name="firstName" ng-model="$ctrl.user.profile.firstName" required>
               <div ng-messages="form.firstName.$error">
                 <div ng-message="required">This is required.</div>
               </div>
             </md-input-container>
             <md-input-container md-is-error="form.lastName.$invalid && form.$submitted" class="md-block" flex>
               <label>Last Name</label>
-              <input type="text" name="lastName" ng-model="$ctrl.profile.lastName" required>
+              <input type="text" name="lastName" ng-model="$ctrl.user.profile.lastName" required>
               <div ng-messages="form.lastName.$error">
                 <div ng-message="required">This is required.</div>
               </div>
             </md-input-container>
           </div>
-          <md-input-container class="md-block">
-            <label>Email</label>
-            <input type="text" name="email" ng-model="$ctrl.profile.email" disabled>
-          </md-input-container>
           <md-input-container md-is-error="form.phone.$invalid && form.$submitted" class="md-block">
             <label>Phone</label>
-            <input type="text" name="phone" ng-model="$ctrl.profile.phone" ng-pattern="/^[\+]?[(]?[0-9]{2,3}[)]?[-\s\.]?[0-9]+[-\s\.]?[0-9]+[-\s\.]?[0-9]+$/">
+            <input type="text" name="phone" ng-model="$ctrl.user.profile.phone" ng-pattern="/^[\+]?[(]?[0-9]{2,3}[)]?[-\s\.]?[0-9]+[-\s\.]?[0-9]+[-\s\.]?[0-9]+$/">
             <div ng-messages="form.phone.$error">
               <div ng-message="pattern">Please enter a valid phone number.</div>
             </div>
           </md-input-container>
           <md-input-container md-is-error="form.mobile.$invalid && form.$submitted" class="md-block">
             <label>Mobile</label>
-            <input type="text" name="mobile" ng-model="$ctrl.profile.mobile" ng-pattern="/^[\+]?[(]?[0-9]{2,3}[)]?[-\s\.]?[0-9]+[-\s\.]?[0-9]+[-\s\.]?[0-9]+$/">
+            <input type="text" name="mobile" ng-model="$ctrl.user.profile.mobile" ng-pattern="/^[\+]?[(]?[0-9]{2,3}[)]?[-\s\.]?[0-9]+[-\s\.]?[0-9]+[-\s\.]?[0-9]+$/">
             <div ng-messages="form.mobile.$error">
               <div ng-message="pattern">Please enter a valid phone number.</div>
             </div>
@@ -65,7 +61,7 @@ class EditProfileController {
 
   hide(form) {
     if (form.$invalid) return;
-    this.$mdDialog.hide(this.profile);
+    this.$mdDialog.hide(this.user);
   }
 
   cancel() {

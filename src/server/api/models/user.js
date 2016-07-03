@@ -8,10 +8,13 @@ const pw = credential();
 const UserSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: { type: String },
-  firstName: { type: String },
-  lastName: { type: String },
   google: { type: String },
   facebook: { type: String },
+  role: { type: String, default: 'user', enum: ['admin', 'user'] },
+  profile: {
+    firstName: { type: String },
+    lastName: { type: String },
+  },
 }, { collection: 'users', timestamps: true, virtuals: true });
 
 UserSchema.set('toJSON', {
@@ -25,8 +28,8 @@ UserSchema.set('toJSON', {
   },
 });
 
-UserSchema.virtual('name').get(function () {
-  return `${this.firstName} ${this.lastName}`;
+UserSchema.virtual('profile.name').get(function () {
+  return `${this.profile.firstName} ${this.profile.lastName}`;
 });
 
 UserSchema.pre('save', function (next) {
@@ -41,9 +44,20 @@ UserSchema.pre('save', function (next) {
 UserSchema.statics = {
 
   /**
+   * Get users.
+   *
+   * @param  {Object}   query - object for querying
+   * @param  {Function} callback - callback function for when query is complete
+   * @return {Promise}  result of query
+   */
+  get(query, callback) {
+    return this.find(query, '-password', callback);
+  },
+
+  /**
    * Get a user by id.
    *
-   * @param  {String}   id - id for querying
+   * @param  {string}   id - id for querying
    * @param  {Function} callback - callback function for when query is complete
    * @return {Promise}  result of query
    */
@@ -54,7 +68,7 @@ UserSchema.statics = {
   /**
    * Get a user by email.
    *
-   * @param  {String}   email - email address for querying
+   * @param  {string}   email - email address for querying
    * @param  {Function} callback - callback function for when query is complete
    * @return {Promise}  result of query
    */
@@ -65,7 +79,7 @@ UserSchema.statics = {
   /**
    * Get a user by google plus id.
    *
-   * @param  {String}   facebook - google plus id for querying
+   * @param  {string}   facebook - google plus id for querying
    * @param  {Function} callback - callback function for when query is complete
    * @return {Promise}  result of query
    */
@@ -76,7 +90,7 @@ UserSchema.statics = {
   /**
    * Get a user by facebook id.
    *
-   * @param  {String}   facebook - facebook id for querying
+   * @param  {string}   facebook - facebook id for querying
    * @param  {Function} callback - callback function for when query is complete
    * @return {Promise}  result of query
    */
@@ -90,7 +104,7 @@ UserSchema.methods = {
   /**
    * Authenticate a user.
    *
-   * @param  {String}   password - password of the user
+   * @param  {string}   password - password of the user
    * @param  {Function} callback - callback function for when authentication is complete
    * @return {Promise}  return true or false if without error
    */
@@ -101,8 +115,8 @@ UserSchema.methods = {
   /**
    * Change password of the user
    *
-   * @param  {String}   oldPassword - current password of the user
-   * @param  {String}   newPassword - new password of the user
+   * @param  {string}   oldPassword - current password of the user
+   * @param  {string}   newPassword - new password of the user
    * @param  {Function} callback - callback function for when processing is complete
    * @return {Promise}  return the user instance if changed password successfully,
    *                    or return false if oldPassword is invalid
