@@ -30,7 +30,7 @@ class MainController {
     this.menuItems = [
       { icon: 'home', title: 'Home', link: ['Home'], canAccess: this.auth.isLoggedIn() },
       { icon: 'view-grid', title: 'About', link: ['About'], canAccess: this.auth.isLoggedIn() },
-      // { icon: 'wrench', title: 'Administration', link: ['Admin'], canAccess: this.auth.hasPermission('admin') },
+      { icon: 'wrench', title: 'Administration', link: ['Admin'], canAccess: this.auth.isLoggedIn() },
       { icon: 'settings', title: 'Settings', link: ['Settings'], canAccess: this.auth.isLoggedIn() },
       { icon: 'logout', title: 'Logout', canAccess: this.auth.isLoggedIn() },
     ];
@@ -50,7 +50,7 @@ export default {
   $routeConfig: [
     { path: '/', name: 'Home', component: 'home', useAsDefault: true },
     { path: '/about', name: 'About', component: 'about' },
-    // { path: '/admin/...', name: 'Admin', component: 'admin' },
+    { path: '/admin/...', name: 'Admin', component: 'admin' },
     { path: '/settings/...', name: 'Settings', component: 'settings' },
   ],
   /* @ngInject */
