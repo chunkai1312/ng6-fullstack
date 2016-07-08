@@ -1,0 +1,15 @@
+<md-sidenav
+    class="md-whiteframe-z2"
+    md-component-id="nav"
+    md-is-locked-open="$mdMedia('gt-sm')"
+    md-disable-backdrop>
+  <md-toolbar class="md-whiteframe-z2 ng-click="$ctrl.goHome()">
+    <div class="md-toolbar-tools">
+      <div class="brand" layout="row" layout-align="start center" ng-click="$ctrl.goHome()" flex>
+        <img ng-src="{{ $ctrl.brandSrc }}" alt="Punwave">
+        <span>{{ $ctrl.appTitle }}</span>
+      </div>
+    </div>
+  </md-toolbar>
+  <div ng-transclude></div>
+</md-sidenav>

@@ -1,15 +1,8 @@
 import './admin.css';
 
-const adminTemplate = `
-  <ng-outlet></ng-outlet>
-`;
-
-class AdminController { }
-
 export default {
   bindings: { $router: '<' },
-  template: adminTemplate,
-  controller: AdminController,
+  template: '<ng-outlet></ng-outlet>',
   $routeConfig: [
     { path: '/users', name: 'Users', component: 'users', useAsDefault: true },
   ],

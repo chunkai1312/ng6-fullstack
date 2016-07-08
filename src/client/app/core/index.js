@@ -22,26 +22,28 @@ import 'angular-toastr/dist/angular-toastr.css';
 // material design icons
 import mdi from '../../assets/mdi.svg';
 
-export default angular.module('app.core', [
-  ngAnimate,
-  ngAria,
-  ngComponentRouter,
-  ngCookies,
-  ngMaterial,
-  ngMessages,
-  ngResource,
-  ngMaterialDataTable,
-  ngLoadingBar,
-  ngToastr,
-])
-.config(($locationProvider, $mdIconProvider) => {
-  'ngInject';
+export default angular
+  .module('app.core', [
+    ngAnimate,
+    ngAria,
+    ngComponentRouter,
+    ngCookies,
+    ngMaterial,
+    ngMessages,
+    ngResource,
+    ngMaterialDataTable,
+    ngLoadingBar,
+    ngToastr,
+  ])
+  .config(($locationProvider, $mdIconProvider) => {
+    'ngInject';
 
-  if (process.env.NODE_ENV !== 'development') {
-    $locationProvider.html5Mode(true);
-  } else {
-    $locationProvider.hashPrefix('!');
-  }
+    if (process.env.NODE_ENV !== 'development') {
+      $locationProvider.html5Mode(true);
+    } else {
+      $locationProvider.hashPrefix('!');
+    }
 
-  $mdIconProvider.defaultIconSet(mdi);
-});
+    $mdIconProvider.defaultIconSet(mdi);
+  })
+  .name;

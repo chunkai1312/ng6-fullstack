@@ -1,23 +1,5 @@
+import mainTemplate from './main.html';
 import './main.css';
-import brand from '../../../assets/images/angular-logo.svg';
-
-const mainTemplate = `
-  <div layout="row" layout-fill>
-    <nav-drawer app-title="NG6 Fullstack" brand-src="${brand}" layout="row">
-      <nav-profile user="$ctrl.auth.currentUser"></nav-profile>
-      <nav-menu>
-        <nav-menu-item
-            class="active"
-            item="menuItem"
-            on-item-click="$ctrl.go(menuItem)"
-            ng-repeat="menuItem in $ctrl.menuItems track by $index"
-            ng-if="menuItem.canAccess">
-        </nav-menu-item>
-      </nav-menu>
-    </nav-drawer>
-    <ng-outlet layout-fill flex></ng-outlet>
-  </div>
-`;
 
 class MainController {
   /* @ngInject */

@@ -1,15 +1,8 @@
 import './settings.css';
 
-const settingsTemplate = `
-  <ng-outlet></ng-outlet>
-`;
-
-class SettingsController { }
-
 export default {
   bindings: { $router: '<' },
-  template: settingsTemplate,
-  controller: SettingsController,
+  template: '<ng-outlet></ng-outlet>',
   $routeConfig: [
     { path: '/account', name: 'Account', component: 'account', useAsDefault: true },
   ],

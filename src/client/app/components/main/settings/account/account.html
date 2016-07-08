@@ -1,0 +1,79 @@
+<main-page>
+  <header-bar page-title="Settings"></header-bar>
+  <settings-tabs selected-tab="Account"></settings-tabs>
+  <md-content>
+    <div layout="column">
+      <md-card>
+        <md-card-content>
+          <md-toolbar class="md-table-toolbar md-default">
+            <div class="md-toolbar-tools">
+              <span>Profile</span>
+              <span flex></span>
+              <md-button class="md-icon-button" aria-label="Edit" ng-click="$ctrl.edit($event)">
+                <md-icon md-svg-icon="pencil"></md-icon>
+                <md-tooltip md-direction="bottom">Edit</md-tooltip>
+              </md-button>
+            </div>
+          </md-toolbar>
+          <md-progress-linear md-mode="indeterminate" ng-hide="$ctrl.promise.$$state.status"></md-progress-linear>
+          <md-list ng-repeat="info in $ctrl.userInfo track by $index">
+            <md-list-item>
+              <md-icon md-svg-icon="{{ info.icon }}"></md-icon>
+              <span>{{ info.field }}</span>
+              <span flex></span>
+              <span>{{ info.value }}</span>
+            </md-list-item>
+            <md-divider ng-if="!$last"></md-divider>
+          </md-list>
+        </md-card-content>
+      </md-card>
+      <md-card>
+        <md-card-content>
+          <md-toolbar class="md-table-toolbar md-default">
+            <div class="md-toolbar-tools">
+              <span>Change Password</span>
+              <span flex></span>
+              <md-button class="md-icon-button" aria-label="Change Password" ng-click="$ctrl.changePassword($event)">
+                <md-icon md-svg-icon="lock"></md-icon>
+                <md-tooltip md-direction="bottom">Change Password</md-tooltip>
+              </md-button>
+            </div>
+          </md-toolbar>
+        </md-card-content>          
+      </md-card>        
+      <md-card>
+        <md-card-content>
+          <md-toolbar class="md-table-toolbar md-default">
+            <div class="md-toolbar-tools">
+              <span>Delete Account</span>
+              <span flex></span>
+              <md-button class="md-icon-button" aria-label="Delete" ng-click="$ctrl.delete($event)">
+                <md-icon md-svg-icon="delete"></md-icon>
+                <md-tooltip md-direction="bottom">Delete</md-tooltip>
+              </md-button>
+            </div>
+          </md-toolbar>
+        </md-card-content>
+      </md-card>
+      <md-card>
+        <md-card-content>
+          <md-toolbar class="md-table-toolbar md-default">
+            <div class="md-toolbar-tools">
+              <span>Linked Accounts</span>
+            </div>
+          </md-toolbar>
+          <md-list ng-repeat="linkedAccount in $ctrl.linkedAccounts track by $index">
+            <md-list-item>
+              <md-icon md-svg-icon="{{ linkedAccount.icon }}"></md-icon>
+              <span>{{ linkedAccount.text }}</span>
+              <span flex></span>
+              <md-icon class="md-secondary" md-svg-icon="link" ng-click="$ctrl.linkAccount(linkedAccount.provider)" aria-label="Link" ng-if="!linkedAccount.linked"></md-icon>
+              <md-icon class="md-secondary" md-svg-icon="link-off" ng-click="$ctrl.unlinkAccount(linkedAccount.provider)" aria-label="Unlink" ng-if="linkedAccount.linked"></md-icon>
+            </md-list-item>
+            <md-divider ng-if="!$last"></md-divider>     
+          </md-list>            
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-content>
+<main-page>
