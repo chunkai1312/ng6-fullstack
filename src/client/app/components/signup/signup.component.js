@@ -1,4 +1,5 @@
 import signupTemplate from './signup.html';
+import logoSrc from '../../../assets/images/angular-logo.svg';
 import './signup.css';
 
 class SignupController {
@@ -10,6 +11,7 @@ class SignupController {
 
   $onInit() {
     this.user = {};
+    this.logoSrc = logoSrc;
   }
 
   signup(form) {

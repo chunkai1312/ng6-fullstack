@@ -1,4 +1,5 @@
 import loginTemplate from './login.html';
+import logoSrc from '../../../assets/images/angular-logo.svg';
 import './login.css';
 
 class LoginController {
@@ -10,6 +11,7 @@ class LoginController {
 
   $onInit() {
     this.user = {};
+    this.logoSrc = logoSrc;
   }
 
   login(form) {
