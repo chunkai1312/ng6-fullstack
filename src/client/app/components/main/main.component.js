@@ -1,4 +1,5 @@
 import mainTemplate from './main.html';
+import brandSrc from '../../../assets/images/angular-logo.svg';
 import './main.css';
 
 class MainController {
@@ -9,6 +10,7 @@ class MainController {
   }
 
   $onInit() {
+    this.brandSrc = brandSrc;
     this.menuItems = [
       { icon: 'home', title: 'Home', link: ['Home'], canAccess: this.auth.isLoggedIn() },
       { icon: 'view-grid', title: 'About', link: ['About'], canAccess: this.auth.isLoggedIn() },
