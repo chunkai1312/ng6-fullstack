@@ -1,6 +1,6 @@
 # NG6 Full-Stack
 
-> A seed project for Angular 1.x with Express server
+> A boilerplate for AngularJS 1.5+ with Express server
 
 ## Install
 
