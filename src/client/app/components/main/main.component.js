@@ -14,7 +14,7 @@ class MainController {
     this.menuItems = [
       { icon: 'home', title: 'Home', link: ['Home'], canAccess: this.auth.isLoggedIn() },
       { icon: 'view-grid', title: 'About', link: ['About'], canAccess: this.auth.isLoggedIn() },
-      { icon: 'wrench', title: 'Administration', link: ['Admin'], canAccess: this.auth.isLoggedIn() },
+      { icon: 'wrench', title: 'Administration', link: ['Admin'], canAccess: this.auth.isAdmin() },
       { icon: 'settings', title: 'Settings', link: ['Settings'], canAccess: this.auth.isLoggedIn() },
       { icon: 'logout', title: 'Logout', canAccess: this.auth.isLoggedIn() },
     ];

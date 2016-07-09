@@ -1,4 +1,4 @@
-'use strict';  /* eslint consistent-return: 0 */
+'use strict';  /* eslint consistent-return: 0, no-unused-vars: 0 */
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -6,11 +6,12 @@ const credential = require('credential');
 const pw = credential();
 
 const UserSchema = new Schema({
-  email: { type: String, unique: true, lowercase: true },
+  email: { type: String, lowercase: true },
   password: { type: String },
+  role: { type: String, default: 'user', enum: ['admin', 'user'] },
+  provider: { type: String, default: 'local', enum: ['local', 'google', 'facebook'] },
   google: { type: String },
   facebook: { type: String },
-  role: { type: String, default: 'user', enum: ['admin', 'user'] },
   profile: {
     firstName: { type: String },
     lastName: { type: String },
@@ -73,7 +74,7 @@ UserSchema.statics = {
    * @return {Promise}  result of query
    */
   getByEmail(email, callback) {
-    return this.findOne({ email }, callback);
+    return this.findOne({ email, provider: 'local' }, callback);
   },
 
   /**

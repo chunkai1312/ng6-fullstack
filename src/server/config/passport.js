@@ -34,6 +34,7 @@ const google = new GoogleStrategy({
       if (user) return done(null, false, { message: 'There is already an account using this email address.' });
       user = yield User.create({
         email: profile.emails[0].value,
+        provider: 'google',
         google: profile.id,
         profile: {
           firstName: profile.name.givenName,
@@ -58,6 +59,7 @@ const facebook = new FacebookStrategy({
       if (user) return done(null, false, { message: 'There is already an account using this email address.' });
       user = yield User.create({
         email: profile.emails[0].value,
+        provider: 'facebook',
         facebook: profile.id,
         profile: {
           firstName: profile.name.givenName,

@@ -13,6 +13,7 @@ class AccountController {
   $onInit() {
     this.user = this.User.get();
     this.user.$promise.then(user => {
+      console.log(user);
       this.profile = {
         id: user.id,
         firstName: user.firstName,
@@ -31,14 +32,14 @@ class AccountController {
         {
           provider: 'google',
           icon: 'google-plus',
-          text: `${(user.google) ? 'Unlink' : 'Link'} your Google account`,
-          linked: (user.google) ? true : false,
+          text: 'Link your Google account',
+          linked: !!user.google,
         },
         {
           provider: 'facebook',
           icon: 'facebook-box',
-          text: `${(user.facebook) ? 'Unlink' : 'Link'} your Facebook account`,
-          linked: (user.facebook) ? true : false,
+          text: 'Link your Facebook account',
+          linked: !!user.facebook,
         },
       ];
     });
@@ -72,10 +73,6 @@ class AccountController {
     this.dialog.openDeleteConfirmationDialog('Account', $event)
       .then(this.User.remove({ id: this.auth.currentUser.id }).$promise)
       .then(() => this.auth.logout());
-  }
-
-  linkAccount(provider) {
-    this.auth.authenticate(provider);
   }
 }
 

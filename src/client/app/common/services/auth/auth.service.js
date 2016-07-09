@@ -66,18 +66,12 @@ class AuthService {
     return true;
   }
 
-  // hasPermission(permission) {
-  //   if (_.isEmpty(this.currentUser)) {
-  //     return this.isLoggedIn().then(() => {
-  //       let currentBusinessRoles = _.filter(this.currentUser.roles, role =>
-  //         role.business === this.currentBusiness.id);
-  //       return _.some(currentBusinessRoles, role => role.permissions[permission]);
-  //     });
-  //   }
-  //   let currentBusinessRoles = _.filter(this.currentUser.roles, role =>
-  //     role.business === this.currentBusiness.id);
-  //   return _.some(currentBusinessRoles, role => role.permissions[permission]);
-  // }
+  isAdmin() {
+    if (_.isEmpty(this.currentUser)) {
+      return this.isLoggedIn().then(() => this.currentUser.role === 'admin');
+    }
+    return this.currentUser.role === 'admin';
+  }
 
   forgotPassword(email) {
     return this.$http.post('/auth/forgotPassword', { email });

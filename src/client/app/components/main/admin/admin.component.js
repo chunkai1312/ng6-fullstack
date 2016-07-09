@@ -7,5 +7,5 @@ export default {
     { path: '/users', name: 'Users', component: 'users', useAsDefault: true },
   ],
   /* @ngInject */
-  // $canActivate: (auth) => auth.hasRole('admin'),
+  $canActivate: (auth) => auth.isAdmin(),
 };

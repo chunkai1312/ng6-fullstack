@@ -25,8 +25,9 @@
               <thead md-head>
                 <tr md-row>
                   <th md-column>Name</th>
-                  <th md-column>Role</th>
                   <th md-column>Email</th>
+                  <th md-column>Role</th>
+                  <th md-column>Provider</th>
                   <th md-column>Phone</th>
                   <th md-column>Mobile</th>
                 </tr>
@@ -34,8 +35,9 @@
               <tbody md-body>
                 <tr md-row md-select="user" md-select-id="user.id" ng-repeat="user in $ctrl.users track by user.id">
                   <td md-cell>{{ user.profile.name }}</td>
-                  <td md-cell>{{ user.role }}</td>
                   <td md-cell>{{ user.email }}</td>
+                  <td md-cell>{{ user.role }}</td>
+                  <td md-cell>{{ user.provider }}</td>
                   <td md-cell>{{ user.profile.phone }}</td>
                   <td md-cell>{{ user.profile.mobile }}</td>
                 </tr>

@@ -27,7 +27,7 @@
           </md-list>
         </md-card-content>
       </md-card>
-      <md-card>
+      <md-card ng-if="$ctrl.user.provider === 'local'">
         <md-card-content>
           <md-toolbar class="md-table-toolbar md-default">
             <div class="md-toolbar-tools">
@@ -53,25 +53,6 @@
               </md-button>
             </div>
           </md-toolbar>
-        </md-card-content>
-      </md-card>
-      <md-card>
-        <md-card-content>
-          <md-toolbar class="md-table-toolbar md-default">
-            <div class="md-toolbar-tools">
-              <span>Linked Accounts</span>
-            </div>
-          </md-toolbar>
-          <md-list ng-repeat="linkedAccount in $ctrl.linkedAccounts track by $index">
-            <md-list-item>
-              <md-icon md-svg-icon="{{ linkedAccount.icon }}"></md-icon>
-              <span>{{ linkedAccount.text }}</span>
-              <span flex></span>
-              <md-icon class="md-secondary" md-svg-icon="link" ng-click="$ctrl.linkAccount(linkedAccount.provider)" aria-label="Link" ng-if="!linkedAccount.linked"></md-icon>
-              <md-icon class="md-secondary" md-svg-icon="link-off" ng-click="$ctrl.unlinkAccount(linkedAccount.provider)" aria-label="Unlink" ng-if="linkedAccount.linked"></md-icon>
-            </md-list-item>
-            <md-divider ng-if="!$last"></md-divider>     
-          </md-list>            
         </md-card-content>
       </md-card>
     </div>
