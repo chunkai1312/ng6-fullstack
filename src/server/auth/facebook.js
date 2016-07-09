@@ -26,7 +26,7 @@ module.exports = {
       const user = req.user;
       const token = jwt.sign({ id: user.id, role: user.role }, config.jwt.secret, config.jwt.options);
       res.cookie('token', token);
-      res.redirect(config.baseUrl);
+      res.redirect(`${config.baseUrl}#`);
     }),
   ],
 
