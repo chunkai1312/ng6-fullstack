@@ -2,26 +2,28 @@
 
 > A boilerplate for AngularJS 1.5+ with Express server
 
-## Install
+## Usage
+
+### Setup
 
 ```sh
 $ npm install
 ```
 
-## Development
+### Developing
 
 ```sh
 $ npm run dev
 ```
 
-## Production
+### Running
 
 ```sh
 $ npm run build
 $ npm start
 ```
 
-## Test
+### Testing
 
 ```sh
 $ npm test
