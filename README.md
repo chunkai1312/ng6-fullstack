@@ -1,4 +1,4 @@
-# NG6 Full-Stack
+# ng6-fullstack
 
 > A boilerplate for AngularJS 1.5+ with Express server
 
@@ -42,6 +42,10 @@ $ npm test
 ```
 $ npm run generator:component [name]
 ```
+
+## Refrences
+[NG6-starter](https://github.com/AngularClass/NG6-starter)
+[generator-angular-fullstack](https://github.com/angular-fullstack/generator-angular-fullstack)
 
 ## License
 
