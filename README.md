@@ -5,8 +5,7 @@
 ## Features
 
 - A MEAN stack application, using MongoDB, Express, AngularJS, and Node.js
-- Component-based application development for client-side JavaScript
-- MVC style file structure on server-side Node.js
+- Component-based application structure
 - Development with ES6/ES2015 JavaScript
 - Webpack and NPM scripts for the build process
 - Tasks for generating additional boilerplate Angular components
