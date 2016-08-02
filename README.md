@@ -2,33 +2,48 @@
 
 > A boilerplate for AngularJS 1.5+ with Express server
 
+## Features
+
+- A MEAN stack application, using MongoDB, Express, AngularJS, and Node.js
+- Component-based application development for client-side JavaScript
+- MVC style file structure on server-side Node.js
+- Development with ES6/ES2015 JavaScript
+- Webpack and NPM scripts for the build process
+- Tasks for generating additional boilerplate Angular components
+
 ## Usage
 
 ### Setup
 
-```sh
+```
 $ npm install
 ```
 
 ### Developing
 
-```sh
+```
 $ npm run dev
 ```
 
 ### Running
 
-```sh
+```
 $ npm run build
 $ npm start
 ```
 
 ### Testing
 
-```sh
+```
 $ npm test
+```
+
+### Generating Components
+
+```
+$ npm run generator:component [name]
 ```
 
 ## License
 
-MIT © [Chun-Kai Wang]()
+MIT © [Chun-Kai Wang](https://github.com/chunkai1312)
