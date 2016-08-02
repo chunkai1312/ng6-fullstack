@@ -1,7 +1,7 @@
 {
   "name": "ng6-fullstack",
   "version": "1.0.0",
-  "description": "A seed project for Angular 1.x with Express server",
+  "description": "A boilerplate for AngularJS 1.5+ with Express server",
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./dist/app.js",
     "dev": "cross-env NODE_ENV=development node ./src/index.js",
