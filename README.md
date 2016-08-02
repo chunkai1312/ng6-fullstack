@@ -44,8 +44,8 @@ $ npm run generator:component [name]
 ```
 
 ## Refrences
-[NG6-starter](https://github.com/AngularClass/NG6-starter)
-[generator-angular-fullstack](https://github.com/angular-fullstack/generator-angular-fullstack)
+- [NG6-starter](https://github.com/AngularClass/NG6-starter)
+- [generator-angular-fullstack](https://github.com/angular-fullstack/generator-angular-fullstack)
 
 ## License
 
